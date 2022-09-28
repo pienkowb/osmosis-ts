@@ -4,4 +4,4 @@
 --proto_path=./ibc-go/proto
 --proto_path=./osmosis/proto
 --as_out=./src
---as_opt=gen-dependencies
+--as_opt=gen-dependencies,gen-helper-methods
