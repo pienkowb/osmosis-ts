@@ -1,8 +1,6 @@
 /// <reference types="@as-pect/assembly/types/as-pect" />
 
-import { Protobuf } from 'as-proto';
-
-import { decodeMsgSwapExactAmountOut } from '../src/osmosis/gamm/v1beta1/tx';
+import { encodeMsgSwapExactAmountOut, decodeMsgSwapExactAmountOut } from '../src/osmosis/gamm/v1beta1/tx';
 import { MsgSwapExactAmountOut, SwapAmountOutRoute } from '../src/osmosis/gamm/v1beta1/tx';
 import { Coin } from '../src/cosmos/base/v1beta1/coin';
 
@@ -15,7 +13,7 @@ describe('Osmosis', () => {
       new Coin('osmo', '100')
     );
 
-    const encodedMsg = Protobuf.encode<MsgSwapExactAmountOut>(msg, MsgSwapExactAmountOut.encode);
+    const encodedMsg = encodeMsgSwapExactAmountOut(msg);
     const decodedMsg = decodeMsgSwapExactAmountOut(encodedMsg);
 
     expect(decodedMsg.sender).toBe('osmo1hjct6q7npsspsg3dgvzk3sdf89spmlpfqua7lv');
