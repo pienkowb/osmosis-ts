@@ -8,9 +8,9 @@ TypeScript/AssemblyScript library for decoding Osmosis messages.
 import { osmosis, google } from "@graphprotocol/osmosis-ts";
 
 function logSender(any: google.protobuf.Any) {
-  if (any.type_url == '/osmosis.gamm.v1beta1.MsgSwapExactAmountOut') {
+  if (any.typeUrl == '/osmosis.gamm.v1beta1.MsgSwapExactAmountOut') {
     const message = osmosis.gamm.v1beta1.decodeMsgSwapExactAmountOut(any.value);
-    log.console(message.sender);
+    console.log(message.sender);
   }
 }
 ```
