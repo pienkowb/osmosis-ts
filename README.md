@@ -1,15 +1,16 @@
 # osmosis-ts
 
-TypeScript/AssemblyScript library for decoding Osmosis messages.
+An AssemblyScript library for decoding Osmosis messages.
 
 ## Usage
 
 ```typescript
-import { osmosis, google } from "@graphprotocol/osmosis-ts";
+import { Any } from "@graphprotocol/osmosis-ts/assembly/google/protobuf/Any";
+import { decodeMsgSwapExactAmountOut } from "@graphprotocol/osmosis-ts/assembly/osmosis/gamm/v1beta1/MsgSwapExactAmountOut";
 
-function logSender(any: google.protobuf.Any) {
-  if (any.typeUrl == '/osmosis.gamm.v1beta1.MsgSwapExactAmountOut') {
-    const message = osmosis.gamm.v1beta1.decodeMsgSwapExactAmountOut(any.value);
+function logSender(any: Any): void {
+  if (any.typeUrl == "/osmosis.gamm.v1beta1.MsgSwapExactAmountOut") {
+    const message = decodeMsgSwapExactAmountOut(any.value);
     console.log(message.sender);
   }
 }
