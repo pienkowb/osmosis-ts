@@ -2,11 +2,11 @@
 
 import {
   MsgSwapExactAmountOut,
-  SwapAmountOutRoute,
   encodeMsgSwapExactAmountOut,
   decodeMsgSwapExactAmountOut,
-} from "../src/osmosis/gamm/v1beta1/tx";
-import { Coin } from "../src/cosmos/base/v1beta1/coin";
+} from "../assembly/osmosis/gamm/v1beta1/MsgSwapExactAmountOut";
+import { SwapAmountOutRoute } from "../assembly/osmosis/gamm/v1beta1/SwapAmountOutRoute";
+import { Coin } from "../assembly/cosmos/base/v1beta1/Coin";
 
 describe("Osmosis", () => {
   test("decodes a swap message", () => {
